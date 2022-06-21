@@ -1,13 +1,15 @@
-from gym import spaces
+import pathlib
+
 from gym.envs.mujoco.mujoco_env import MujocoEnv
 import numpy as np
+
+
+path = pathlib.Path(__file__)
 
 DEFAULT_CAMERA_CONFIG = {
     "distance": 4.0,
 }
-
-A1_XML_PATH = "/home/karma/Documents/DL_Lab/Project/robot_spec/xml/a1_mj210.xml"
-#A1_XML_PATH = "/home/karma/Documents/DL_Lab/Project/repos/unitree_mujoco/data/a1/xml/a1.xml"
+A1_XML_PATH = path.parents[2].resolve().joinpath("robot_spec/xml/a1_mj210.xml").as_posix()
 FRAME_SKIP = 5
 
 class A1Env(MujocoEnv):
@@ -172,10 +174,9 @@ class A1Env(MujocoEnv):
 
 if __name__ == "__main__":
     env = A1Env(A1_XML_PATH, FRAME_SKIP)
-
     while True:
         try:
             env.render()
-            env.step(env.action_space.sample())
+            # env.step(env.action_space.sample())
         except KeyboardInterrupt:
             env.close()

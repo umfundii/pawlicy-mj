@@ -332,9 +332,11 @@ class A1Env(MujocoEnv):
                 setattr(self.viewer.cam, key, value)
 
 def r2d(rad):
+    """To convert radian to degree"""
     return math.degrees(rad)
 
 def d2r(deg):
+    """To convert degree to radian"""
     return math.radians(deg)
 
 if __name__ == "__main__":

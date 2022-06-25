@@ -18,11 +18,13 @@ class A1Env(MujocoEnv):
     """
     ### Description
 
+    **ANY TEXT SURROUNDED BY $../$ eg. $SOME TEXT"/$ NEEDS TO BE UPDATED.**
+
     This environment is based on the environment model by unitree robotics,
     (https://github.com/unitreerobotics/unitree_mujoco).
     The A1 is a 3D robot consisting of one trunk (free body) with
     four legs attached to it with each leg having 3 bodies. The goal is to
-    coordinate the four legs to move in any $the forward (right)$ direction by applying
+    coordinate the four legs to move in any $the forward (right)/$ direction by applying
     torques on the 12 hinge joints connecting the three bodies of each leg and the trunk
     (13 bodies and 12 hinge joints).
 
@@ -56,7 +58,7 @@ class A1Env(MujocoEnv):
 
     The observation is a `ndarray` with shape `(119,)` where the elements correspond to the following:
 
-    | Num | Observation                                                         | $Min | Max$| Name (in corresponding XML file) | Joint | Unit                     |
+    | Num | Observation                                                         | $Min | Max/$| Name (in corresponding XML file) | Joint | Unit                     |
     |-----|---------------------------------------------------------------------|------|-----|----------------------------------|-------|--------------------------|
     | 0   | x-coordinate of the trunk (centre)                                  | -Inf | Inf | trunk                            | free  | position (m)             |
     | 1   | y-coordinate of the trunk (centre)                                  | -Inf | Inf | trunk                            | free  | position (m)             |
@@ -121,8 +123,9 @@ class A1Env(MujocoEnv):
 
     **Note:** Ant-v4 has the option of including contact forces in the observation space. To add contact forces set the argument
     'use_contact_forces" to True. The default value is False. Also note that training including contact forces can perform worse
-    than not using them as shown in (https://github.com/openai/gym/pull/2762).$
+    than not using them as shown in (https://github.com/openai/gym/pull/2762)./$
 
+    $
     ### Rewards
     The reward consists of three parts:
     - *survive_reward*: Every timestep that the ant is alive, it gets a reward of 1.
@@ -157,6 +160,7 @@ class A1Env(MujocoEnv):
     3. The z-position (index 2) in the state is **not** in the range `[0.2, 1.0]` or
         z-orientation (index 5) is **not** in range `[-0.2, 0.2]`
     ``
+    /$
     """
     metadata = {
         "render_modes": [

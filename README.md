@@ -1,5 +1,6 @@
+# A Mujoco Environment for Unitree A1 robot
 
-# Setting up
+## Setting up
 
 ### Install Gym
 
